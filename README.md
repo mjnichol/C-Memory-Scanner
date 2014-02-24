@@ -3,12 +3,12 @@ Simple C Memory Scanner
 
 Directory contents:
 
--Makefile
--memchunk.c
--memchunk.h
--main.c
--written_answer.txt
--README
+ - Makefile
+ - memchunk.c
+ - memchunk.h
+ - main.c
+ - written_answer.txt
+ - README
 
 Build Instructions:
 
