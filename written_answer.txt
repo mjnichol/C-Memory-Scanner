@@ -1,0 +1,88 @@
+Below is the output of my program as well as the addresses of
+some variables and functions to see what is going on!
+
+*******************************************************
+
+Here are the addresses of some variables and functions:
+
+Dynamically allocated:
+mem_list address at: 0x9539008
+
+Stack variables:
+num_entries at: 0xff8cffb8
+
+Function addresses:
+main at: 0x8048726
+get_mem_layout at: 0x8048a4d
+
+command line inputs:
+argv is at: 0xff8d0074
+argc is at: 0xff8cffe0
+
+*********************************************************
+Check some of the addresses within the memchunk function itself:
+
+Index is at: 0xff8cff78
+The memlist is at: 0x9539008
+The size argument is at: 0xff8cffa4
+The global jumpbuf is at: 0x804b080
+
+********************************************************
+
+There are 10 memory chunks in the process's address space.
+MEMORY LAYOUT:
+
+Address: 0x8048000 -> text segment
+Length: 0x3000
+Access Type: R
+
+Address: 0x804b000 -> data segment
+Length: 0x1000
+Access Type: RW
+
+Address: 0x9539000 -> heap
+Length: 0x21000
+Access Type: RW
+
+Address: 0xf75e2000 -> stack
+Length: 0x1000
+Access Type: RW
+
+Address: 0xf75e3000
+Length: 0x1a5000
+Access Type: R
+
+Address: 0xf7788000
+Length: 0x4000
+Access Type: RW
+
+Address: 0xf77bc000
+Length: 0x2000
+Access Type: RW
+
+Address: 0xf77be000
+Length: 0x22000
+Access Type: R
+
+Address: 0xf77e0000
+Length: 0x1000
+Access Type: RW
+
+Address: 0xff8b0000 -> stack variables
+Length: 0x22000
+Access Type: RW
+
+*************************************************
+
+Explanation: 
+
+I printed out the addresses of several important things in order to deduce
+what the different memory segments represented. I see that the top most segment
+around 0x8048000 is the text segment of the program, because that is where the 
+address of main sits. Next, I printed out the address of some global variables 
+and found that they lived in the very next segment which is near 0x804b000. This
+is the data segment of the program. After this I created a dynamically allocated
+variable to see where it resided. This was found at 0x9539000. This segment is the
+heap. Finally, the memory from 0xf75e2000 through to 0xff8b0000 must be the stack
+segment where local variables reside. You can see that some of the local variables
+printed at the top of the page can be mapped to these addresses.
